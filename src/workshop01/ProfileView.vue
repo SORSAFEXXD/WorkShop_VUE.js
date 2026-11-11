@@ -109,7 +109,7 @@
           <div class="art-spotlight" aria-hidden="true"></div>
 
           <div class="art-photo" data-tilt>
-            <img :src="profileImage" alt="เซฟนั่งพักผ่อนริมทาง" />
+            <img :src="profileImage" alt="pic" />
             <span class="photo-shine" aria-hidden="true"></span>
             <span class="photo-frame" aria-hidden="true"></span>
           </div>
@@ -182,7 +182,7 @@
           <img
             class="education-seal"
             :src="universityLogo"
-            alt="ตราสัญลักษณ์มหาวิทยาลัยแม่โจ้"
+            alt="mjulogo"
           />
           <div class="education-footer">
             <span>คลิกเพื่อดูรายละเอียด</span>
