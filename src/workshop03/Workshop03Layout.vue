@@ -23,7 +23,7 @@
         </template>
         <template v-else>
           <router-link to="/workshop3/login" class="shop-login">เข้าสู่ระบบ</router-link>
-          <router-link to="/workshop3/register" class="shop-register">เปิดร้านฟรี</router-link>
+          <router-link to="/workshop3/register" class="shop-register">สมัครสมาชิก</router-link>
           <router-link
             v-if="$route.path !== '/workshop3/admin/login'"
             to="/workshop3/admin/login"

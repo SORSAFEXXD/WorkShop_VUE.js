@@ -35,7 +35,7 @@
               :class="`product-visual-${index + 1}`"
               type="button"
               :aria-label="`ดูรายละเอียด ${product.name}`"
-              @click="selectedProduct = product"
+              @click="openProductDetails(product)"
             >
               <img v-if="product.imageurl" class="product-image" :src="product.imageurl" :alt="product.name">
               <span v-else class="product-art-circle"><v-icon>{{ product.icon }}</v-icon></span>
@@ -43,7 +43,7 @@
               <span class="product-quick-view">ดูรายละเอียด <v-icon x-small>mdi-arrow-up-right</v-icon></span>
             </button>
             <div class="product-info">
-              <button class="product-name" type="button" @click="selectedProduct = product">
+              <button class="product-name" type="button" @click="openProductDetails(product)">
                 {{ product.name }}
               </button>
               <span class="product-subtitle">พร้อมส่ง · {{ product.qty }} คู่</span>
@@ -126,9 +126,9 @@
       </div>
     </section>
 
-    <v-dialog v-model="selectedProduct" max-width="460">
+    <v-dialog v-model="productDialog" max-width="460">
       <v-card v-if="selectedProduct" class="product-dialog">
-        <button class="dialog-close" type="button" aria-label="ปิด" @click="selectedProduct = null">
+        <button class="dialog-close" type="button" aria-label="ปิด" @click="productDialog = false">
           <v-icon>mdi-close</v-icon>
         </button>
         <div class="dialog-product-art">
@@ -177,6 +177,7 @@ export default {
     cart: [],
     savedCart: [],
     selectedProduct: null,
+    productDialog: false,
     orderMessage: '',
     orderError: false,
     orderBusy: false,
@@ -195,6 +196,10 @@ export default {
     },
   },
   methods: {
+    openProductDetails(product) {
+      this.selectedProduct = product
+      this.productDialog = true
+    },
     async loadProducts() {
       this.productsLoading = true
       this.productsError = ''
